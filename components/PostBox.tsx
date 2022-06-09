@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import Avatar from './Avatar'
 import { LinkIcon, PhotographIcon} from '@heroicons/react/outline'
 import { useForm } from 'react-hook-form'
+import { useMutation } from '@apollo/client'
+import { ADD_POST } from '../graphql/mutations'
 
 type FormData = {
   postTitle: string
@@ -13,11 +15,17 @@ type FormData = {
 
 function PostBox() {
   const { data: session } = useSession()
+  const [addPost] = useMutation(ADD_POST)
   const [imageBoxOpen, setImageBoxOpen] = useState<boolean>(false)
   const { register, setValue, handleSubmit, watch, formState: { errors },} = useForm<FormData>()
 
   const onSubmit = handleSubmit(async (formData) => {
     
+    try {
+      
+    } catch (error) {
+      
+    }
   })
 
 
